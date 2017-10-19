@@ -9,13 +9,13 @@ public class VectorRn {
 
     public VectorRn( double[] values ) {
 
-        this.values = values;
+        this.values = values.clone();
 
     }
 
     public VectorRn( VectorRn vector ) {
 
-        this.values = vector.values;
+        this( vector.values.clone() );
 
     }
 
@@ -43,7 +43,7 @@ public class VectorRn {
 
     public VectorRn mult ( double d ) {
 
-        VectorRn help = new VectorRn( this );
+        VectorRn help = new VectorRn( this.values );
 
         for ( int i = 0; i < help.values.length; i++ ) {
 
@@ -52,6 +52,32 @@ public class VectorRn {
         }
 
         return help;
+
+    }
+
+    public static double scalarProd ( VectorRn v1 , VectorRn v2 ) {
+
+        if ( v1.values.length != v2.values.length ) {
+
+            throw new UnconsistentVectorDimensionException("Vektordimension fehlerhaft");
+
+        }
+
+        double ret = 0;
+
+        for ( int i = 0; i < v1.values.length; i++ ) {
+
+            ret += ( v1.values[i] * v2.values[i] );
+
+        }
+
+        return ret;
+
+    }
+
+    public double getNorm() {
+
+        return Math.sqrt( VectorRn.scalarProd( this, this ) );
 
     }
 
@@ -67,6 +93,7 @@ public class VectorRn {
             if ( i < this.values.length -1 ) {
 
                 ret += ", ";
+
             }
 
         }

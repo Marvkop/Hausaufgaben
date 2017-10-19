@@ -13,7 +13,7 @@ public class VectorTest {
         VectorRn vb = new VectorRn( b );
         VectorRn vc = new VectorRn( c );
 
-        VectorRn sum1 = va.add( vb );
+        VectorRn sum1 = new VectorRn( va.add( vb ) );
         System.out.println( sum1.toString() );
 
         try {
@@ -28,6 +28,20 @@ public class VectorTest {
 
         VectorRn prod = va.mult( d );
         System.out.println( prod.toString() );
+
+        System.out.println( VectorRn.scalarProd( va, vb ) );
+
+        try {
+
+            System.out.println(VectorRn.scalarProd(va, vc));
+
+        }catch ( UnconsistentVectorDimensionException e ) {
+
+            System.out.println( e.getMessage() );
+
+        }
+
+        System.out.println( va.getNorm() );
 
     }
 
