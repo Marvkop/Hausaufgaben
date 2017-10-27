@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.FileAlreadyExistsException;
+import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -34,5 +35,16 @@ public class EMailAdressBuch {
 			String []temp=sc.nextLine().split(";");
 			this.einfuegen(temp[0], temp[1]);
 		}sc.close();
+	}
+	public void mitarbeiterEinlesen(URL url){
+		try(Scanner sc = new Scanner(url.openStream());){
+			while (sc.hasNextLine()){
+				String [] temp= sc.nextLine().split(";");
+				this.einfuegen(temp[0], temp[1]);
+			}
+		}
+		catch (IOException e){
+			System.out.println(e.getMessage());
+		}
 	}
 }
