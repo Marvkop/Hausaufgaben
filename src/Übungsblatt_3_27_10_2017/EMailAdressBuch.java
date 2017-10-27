@@ -23,10 +23,22 @@ public class EMailAdressBuch {
 		}
 	}
 	public String toString(){
-		String ret="";
-		for (int i=0; i<buch.size();i++){
+		String ret="{ ";
+		String[] tempName=new String [buch.size()];
+		String [] tempEmail=new String[buch.size()];
+		int i=0;
+		for (String k:buch.keySet()){
+			tempName[i]=k;
+			i++;
+		}i=0;
+		for (String l:buch.values()){
+			tempEmail[i]=l;
+			i++;
 		}
-		return ret;
+		for (int j=0; j<tempName.length;j++){
+			ret+=tempName[j]+"="+tempEmail[j]+", ";
+		}
+		return ret+" }";
 	}
 	public void einlesen (String dateiname)throws FileNotFoundException{
 		File f = new File (dateiname);
