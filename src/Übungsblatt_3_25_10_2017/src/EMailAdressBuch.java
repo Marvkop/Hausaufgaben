@@ -20,7 +20,7 @@ public class EMailAdressBuch {
 	public String toString(){
 		String ret="";
 		for (int i=0; i<buch.size();i++){
-			ret+=buch.get
 		}
+		return ret;
 	}
 }
