@@ -1,4 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class EMailAdressBuch {
 	private HashMap <String, String> buch=new HashMap<>();
@@ -22,5 +26,13 @@ public class EMailAdressBuch {
 		for (int i=0; i<buch.size();i++){
 		}
 		return ret;
+	}
+	public void einlesen (String dateiname)throws FileNotFoundException{
+		File f = new File (dateiname);
+		Scanner sc = new Scanner (f);
+		while (sc.hasNextLine()){
+			String []temp=sc.nextLine().split(";");
+			this.einfuegen(temp[0], temp[1]);
+		}sc.close();
 	}
 }
