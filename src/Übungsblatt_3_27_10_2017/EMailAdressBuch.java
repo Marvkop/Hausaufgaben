@@ -11,15 +11,31 @@ public class EMailAdressBuch {
 
 	private HashMap <String, String> buch = new HashMap<>();
 
+    /**
+     * erzeugt ein neues leeres Adressbuch
+     */
+
 	public EMailAdressBuch () {
 		
 	}
+
+    /**
+     * fügt dem Adressbuch einen neuen Eintrag hinzu
+     * @param Name der Name der Person
+     * @param email die E-Mail-Adresse der Person
+     */
 
 	public void einfuegen ( String Name, String email ) {
 
 		buch.put( Name, email );
 		
 	}
+
+    /**
+     * gibt die E-Mail-Adresse einer Person zurück
+     * @param Name der Name der Person
+     * @return die E-Mail-Adresse der Person
+     */
 
 	public String abfrage ( String Name ) {
 
@@ -34,6 +50,11 @@ public class EMailAdressBuch {
 		}
 
 	}
+
+    /**
+     * gibt das gesamte Adressbuch als String zurück
+     * @return das gesamte Adressbuch
+     */
 
 	public String toString() {
 
@@ -68,6 +89,12 @@ public class EMailAdressBuch {
 
 	}
 
+    /**
+     * liest Namen und E-Mail-Adressen aus einer Datei ein
+     * @param dateiname der Name der Datei
+     * @throws FileNotFoundException falls Name fehlerhaft
+     */
+
 	public void einlesen ( String dateiname ) throws FileNotFoundException {
 
 		File f = new File ( dateiname );
@@ -84,20 +111,23 @@ public class EMailAdressBuch {
 
 	}
 
-	public void mitarbeiterEinlesen( URL url ) {
+    /**
+     * liest die Namen und E-Mail-Adressen aus einer URL ein
+     * @param url die URL auf der sich die einzulesende Datei befindet
+     */
+
+	public void mitarbeiterEinlesen ( URL url ) {
 
 		try( Scanner sc = new Scanner( url.openStream() ) ) {
 
-			while ( sc.hasNextLine() ) {
+            while (sc.hasNextLine()) {
 
-				String[] temp = sc.nextLine().split( ";" );
-				this.einfuegen( temp[ 0 ], temp[ 1 ] );
+                String[] temp = sc.nextLine().split(";");
+                this.einfuegen( temp[ 0 ], temp[ 1 ] );
 
-			}
+            }
 
-		}
-
-		catch ( IOException e ) {
+        } catch ( IOException e ) {
 
 			System.out.println( e.getMessage() );
 
