@@ -58,7 +58,6 @@ public class EMailAdressBuch {
 
 	public String toString() {
 
-
 	    StringBuilder ret = new StringBuilder();
 		String[] tempName = buch.keySet().toArray( new String[]{} );
 		String[] tempEmail = buch.values().toArray( new String[]{} );
