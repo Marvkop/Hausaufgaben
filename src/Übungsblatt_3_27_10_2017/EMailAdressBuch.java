@@ -58,34 +58,22 @@ public class EMailAdressBuch {
 
 	public String toString() {
 
-		String ret = "{ ";
-		String[] tempName = new String[ buch.size() ];
-		String[] tempEmail = new String[ buch.size() ];
-		int i = 0;
 
-		for ( String k : buch.keySet() ) {
+	    StringBuilder ret = new StringBuilder();
+		String[] tempName = buch.keySet().toArray( new String[]{} );
+		String[] tempEmail = buch.values().toArray( new String[]{} );
 
-			tempName[ i ] = k;
-			i++;
-
-		}
-
-		i = 0;
-
-		for ( String l : buch.values() ) {
-
-			tempEmail[ i ] = l;
-			i++;
-
-		}
+        ret.append( "{ " );
 
 		for ( int j = 0; j < tempName.length; j++ ) {
 
-			ret += tempName[ j ] + "=" + tempEmail[ j ] + ", ";
+			ret.append( tempName[ j ] + " = " + tempEmail[ j ] + ( j < tempName.length - 1 ?  ", " : "" ) ); // beim letzten element soll kein komma angehängt werden
 
 		}
 
-		return ret + " }";
+		ret.append( " }" );
+
+		return ret.toString();
 
 	}
 
