@@ -64,9 +64,12 @@ public class EMailAdressBuch {
 
         ret.append( "{ " );
 
-		for ( int j = 0; j < tempName.length; j++ ) {
+		for ( int j = 0; j < buch.size(); j++ ) {
 
-			ret.append( tempName[ j ] + " = " + tempEmail[ j ] + ( j < tempName.length - 1 ?  ", " : "" ) ); // beim letzten element soll kein komma angehängt werden
+			ret.append( tempName[ j ] )
+                    .append( " = " )
+                    .append( tempEmail[ j ] )
+                    .append( ( j < buch.size() - 1 ?  ", " : "" ) ); // beim letzten element soll kein komma angehängt werden
 
 		}
 
