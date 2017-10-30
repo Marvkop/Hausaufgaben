@@ -73,9 +73,7 @@ public class EMailAdressBuch {
 
 		}
 
-		ret.append( " }" );
-
-		return ret.toString();
+		return ret.append( " }" ).toString();
 
 	}
 
