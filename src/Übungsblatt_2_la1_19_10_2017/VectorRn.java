@@ -1,23 +1,35 @@
 package Übungsblatt_2_la1_19_10_2017;
 
-import java.lang.reflect.Array;
-import java.util.stream.Stream;
-
 public class VectorRn {
 
     private double[] values;
 
+    /**
+     * erzeugt aus einem double array einen Vector mit der Dimension der Arraylänge
+     * @param values ein double-array
+     */
     public VectorRn( double[] values ) {
 
         this.values = values.clone();
 
     }
 
+    /**
+     * Copy-Constructor
+     * @param vector zu kopierender Vector
+     */
+
     public VectorRn( VectorRn vector ) {
 
         this( vector.values.clone() );
 
     }
+
+    /**
+     * addiert zwei Vektoren und gibt einen neuen Vektor zurück
+     * @param v2 der zu addierende Vektor
+     * @return der neu erzeugte Vektor
+     */
 
     public VectorRn add ( VectorRn v2 ) {
 
@@ -41,6 +53,12 @@ public class VectorRn {
 
     }
 
+    /**
+     * multipliziert den Vektor mit dem übergebenen Wert und gibt einen neu erzeugten Vektor zurück
+     * @param d der faktor mit dem der Vektor multipliziert werden soll
+     * @return der neu erzeugte Vektor
+     */
+
     public VectorRn mult ( double d ) {
 
         VectorRn help = new VectorRn( this.values );
@@ -54,6 +72,13 @@ public class VectorRn {
         return help;
 
     }
+
+    /**
+     * führt mit dem zwei übergebenen Vektoren das Skalarprodukt aus und gibt das ergebnis zurück
+     * @param v1 der erste Vektor
+     * @param v2 der zweite Vektor
+     * @return das Ergebnis des Skalarproduktes
+     */
 
     public static double scalarProd ( VectorRn v1 , VectorRn v2 ) {
 
@@ -75,11 +100,21 @@ public class VectorRn {
 
     }
 
+    /**
+     * gibt die Norm des Vektors zurück
+     * @return der Norm-Wert
+     */
+
     public double getNorm() {
 
         return Math.sqrt( VectorRn.scalarProd( this, this ) );
 
     }
+
+    /**
+     * gibt den Vektor im String-Format zurück
+     * @return String mit Vektor
+     */
 
     @Override
     public String toString() {
@@ -103,4 +138,5 @@ public class VectorRn {
         return ret;
 
     }
+
 }
