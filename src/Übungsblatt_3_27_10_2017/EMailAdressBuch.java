@@ -20,7 +20,7 @@ public class EMailAdressBuch {
 	}
 
     /**
-     * fügt dem Adressbuch einen neuen Eintrag hinzu
+     * fügt dem Adressbuch einen neuen Eintrag hinzu, falls der Name schon vorhanden ist wird nur die E-Mail-Adresse aktualisiert
      * @param name der Name der Person
      * @param email die E-Mail-Adresse der Person
      */
