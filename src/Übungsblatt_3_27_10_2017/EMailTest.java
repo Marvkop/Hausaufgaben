@@ -27,7 +27,9 @@ public class EMailTest {
 		System.out.println( test.abfrage("Jan-Niklas Belunjak") );
 		System.out.println( matseExtern.abfrage("Yvonne Albrecht") );
 		System.out.println( matseIntern.abfrage("Hans Joachim Pflug") );
-		System.out.println( matseIntern.toString() );
+		System.out.println();
+		System.out.println( matseIntern);
+
 
 	}
 
