@@ -24,11 +24,13 @@ public class EMailTest {
 
         }
 
-        System.out.println(test.abfrage("Jan-Niklas Belunjak"));
-        System.out.println(test);
-        System.out.println();
         System.out.println(matse.abfrage("Hans Joachim Pflug"));
         System.out.println(matse);
+        System.out.println();
+        System.out.println(test.abfrage("Jan-Niklas Belunjak"));
+        System.out.println(test);
+
+
 
     }
 
