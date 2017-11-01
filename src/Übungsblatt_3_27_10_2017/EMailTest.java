@@ -14,7 +14,7 @@ public class EMailTest {
 		try {
 
             test.einlesen("emailadressbuch.txt");
-            matse.mitarbeiterEinlesen(new URL("https://doc.itc.rwth-aachen.de/download/attachments/5800183/mitarbeiter_matse_extern.txt"));
+            matse.einlesen("mitarbeiter_matse_extern.txt");
             matse.mitarbeiterEinlesen(new URL("https://doc.itc.rwth-aachen.de/download/attachments/5800183/mitarbeiter_matse_intern.txt"));
 
 		} catch ( FileNotFoundException | MalformedURLException e ) {
@@ -26,8 +26,7 @@ public class EMailTest {
 		System.out.println( test.abfrage("Jan-Niklas Belunjak") );
 		System.out.println( matse.abfrage("Yvonne Albrecht") );
 		System.out.println( matse.abfrage("Hans Joachim Pflug") );
-		System.out.println( matse);
-
+		System.out.println( matse );
 
 	}
 
