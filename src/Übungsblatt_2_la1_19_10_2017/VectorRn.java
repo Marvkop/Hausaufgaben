@@ -26,6 +26,24 @@ public class VectorRn {
     }
 
     /**
+     * überprüft ob der übergebene Vektor parallel zu dem "this"-Vektor liegt
+     * @param v2 der zu prüfende Vektor
+     * @return true falls parallel ansonsten false
+     */
+
+    public boolean isParallel( VectorRn v2 ) {
+
+        if ( v2.values.length != this.values.length ) {
+
+            throw new UnconsistentVectorDimensionException("Dimensionen der Vektoren stimmen nicht überein");
+
+        }
+
+        return VectorRn.scalarProd( this, v2 ) == 0;
+
+    }
+
+    /**
      * addiert zwei Vektoren und gibt einen neuen Vektor zurück
      * @param v2 der zu addierende Vektor
      * @return der neu erzeugte Vektor
