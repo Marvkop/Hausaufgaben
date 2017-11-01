@@ -39,7 +39,21 @@ public class VectorRn {
 
         }
 
-        return VectorRn.scalarProd( this, v2 ) == 0;
+        double test = this.values[ 0 ] / v2.values[ 0 ];
+
+        for ( int i = 0; i < this.values.length; i++ ) {
+
+            double help = ( this.values[ i ] / v2.values[ i ] );
+
+            if ( !( help <= test + 0.01 && help >= test - 0.01 ) ) {
+
+                return false;
+
+            }
+
+        }
+
+        return true;
 
     }
 
