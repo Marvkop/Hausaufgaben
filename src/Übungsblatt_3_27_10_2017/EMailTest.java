@@ -6,28 +6,30 @@ import java.net.URL;
 
 public class EMailTest {
 
-	public static void main( String[] args ) {
+    public static void main(String[] args) {
 
-		EMailAdressBuch test = new EMailAdressBuch();
-		EMailAdressBuch matse = new EMailAdressBuch();
+        EMailAdressBuch test = new EMailAdressBuch();
+        EMailAdressBuch matse = new EMailAdressBuch();
 
-		try {
+        try {
 
             test.einlesen("emailadressbuch.txt");
-            matse.einlesen("mitarbeiter_matse_extern.txt");
+
             matse.mitarbeiterEinlesen(new URL("https://doc.itc.rwth-aachen.de/download/attachments/5800183/mitarbeiter_matse_intern.txt"));
+            matse.mitarbeiterEinlesen(new URL("https://doc.itc.rwth-aachen.de/download/attachments/5800183/mitarbeiter_matse_extern.txt"));
 
-		} catch ( FileNotFoundException | MalformedURLException e ) {
+        } catch (FileNotFoundException | MalformedURLException e) {
 
-			System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
 
-		}
+        }
 
-		System.out.println( test.abfrage("Jan-Niklas Belunjak") );
-		System.out.println( matse.abfrage("Yvonne Albrecht") );
-		System.out.println( matse.abfrage("Hans Joachim Pflug") );
-		System.out.println( matse );
+        System.out.println(test.abfrage("Jan-Niklas Belunjak"));
+        System.out.println(test);
+        System.out.println();
+        System.out.println(matse.abfrage("Hans Joachim Pflug"));
+        System.out.println(matse);
 
-	}
+    }
 
 }
