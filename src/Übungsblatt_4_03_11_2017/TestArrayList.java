@@ -30,15 +30,14 @@ public class TestArrayList {
 
         }
 
-        //Musterloesung Fehlerhaft: es werden 6 elemente entfernt 1,2,3,4,5,6 es bleibt also nur [0,7,8,9] übrig und nicht [0,6,7,8,9]
-        System.out.println( myArrayList );// [0,7,8,9] // korrigiert
-        System.out.println( myArrayList.get( 2 ) );// 8 // korrigiert
+        System.out.println( myArrayList );// [0,6,7,8,9]
+        System.out.println( myArrayList.get( 2 ) );// 7
 
         MyArrayList myArrayList2 = myArrayList.clone();
         myArrayList.clear();
 
         System.out.println( myArrayList );// []
-        System.out.println( myArrayList2 );// [0,7,8,9] // korrigiert
+        System.out.println( myArrayList2 );// [0,6,7,8,9]
 
     }
 

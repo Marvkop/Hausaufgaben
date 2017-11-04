@@ -126,6 +126,20 @@ public class MyArrayList {
 
         this.testPos( pos );
 
+        if ( size == this.arr.length ) {
+
+            int[] help = new int[ size * 2 ];
+
+            System.arraycopy( this.arr, 0, help, 0, size);
+
+            this.arr = help;
+
+        }
+
+        System.arraycopy( this.arr, pos, this.arr, pos + 1, size - pos);
+
+        this.size += 1;
+
         this.arr[ pos ] = i;
 
     }
