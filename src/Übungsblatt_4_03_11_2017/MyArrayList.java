@@ -153,8 +153,16 @@ public class MyArrayList {
     public void delete( int pos ) {
 
         this.testPos( pos );
+        int[] help;
+        if(size-1 <= arr.length/3) {
+            help = new int[arr.length/2];
+        }else{
+            help = new  int[arr.length];
+        }
 
-        System.arraycopy( this.arr, pos + 1, this.arr, pos, size - pos - 1 );
+        System.arraycopy(arr, 0, help, 0,pos);
+        System.arraycopy(arr, pos+1, help, pos, size-pos-1);
+        arr = help;
 
         this.size -= 1;
 
