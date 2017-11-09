@@ -1,11 +1,6 @@
 package Übungsblatt_5_09_11_2017;
 
-import com.sun.org.apache.bcel.internal.generic.RET;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class PositiveNumber {
 
