@@ -7,7 +7,7 @@ public class PositiveNumberTest {
 
     public static void main( String[] args ) {
 
-       PositiveNumber pn = new PositiveNumber( 0 );
+        PositiveNumber pn = new PositiveNumber( Integer.MAX_VALUE );
 
         System.out.println( pn.getBinary() );
         System.out.println( pn.getDecimal() );
@@ -25,6 +25,7 @@ public class PositiveNumberTest {
 
         try {
 
+            // Negative Zahl
             zs.setHexadecimal( "-1" );
 
         }catch ( NumberFormatException e ) {
@@ -35,7 +36,20 @@ public class PositiveNumberTest {
 
         try {
 
+            // Falsches Zahlensystem
             pn.setBinary( "2" );
+
+        }catch ( NumberFormatException e ) {
+
+            System.out.println( e.getMessage() );
+
+        }
+
+        try {
+
+            // Integer-Überlauf
+            PositiveNumber test = new PositiveNumber();
+            test.setHexadecimal("FFFFFFFFFFFFF");
 
         }catch ( NumberFormatException e ) {
 
